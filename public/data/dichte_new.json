@@ -1,0 +1,60 @@
+[
+  {
+    "key":"1",
+    "name":"1. Tiếp xúc gần ca nhiễm, ca nghi nhiễm COVID-19 trong vòng 14 ngày qua"
+  },
+  {
+    "key":"2",
+    "name":"2. Đi từ quốc gia hoặc vùng lãnh thổ khác trong vòng 14 ngày qua"
+  },
+  {
+    "key":"3",
+    "name":"****cập nhật đến 11h00 ngày 04/03/2021*** 3. Địa phương có ca bệnh trong thời gian giám sát, địa điểm bị phong tỏa, nơi trong thông báo khẩn của Bộ Y ...",
+    "description":[
+      "****cập nhật đến 11h00 ngày 04/03/2021***",
+      "3. Địa phương có ca bệnh trong thời gian giám sát, địa điểm bị phong tỏa, nơi trong thông báo khẩn của Bộ Y tế",
+      "3.1.Hải Phòng",
+      "- BV Giao Thông Vận Tải, Hùng Vương, Hồng Bàng",
+      "3.2.Hải Dương:",
+      "*TP.Chí Linh",
+      "- KDC Cầu Dòng/ KDC Chi Ngãi 1,2/KDC Chúc Thôn/ KDC Bích Động/ Tân Tiến/ Thông Cống-Hàm Ếch/ Tiên Sơn/ K Đại Sơn, Phường Công Hòa, TP.Chí Linh",
+      "- KDC Bích Thủy/ KDC Đông Xá/ KDC Vĩnh Đại//KDC Bích Nham/ KDCVĩnh Long/ Thôn Bến Đò/Thôn Kênh Mai 2/ Thôn Chín Hạ, Phường Văn Đức, TP. Chí Linh",
+      "- Trường TH Chu Văn An, KDC Thái Học 1/ KDC Trần Hưng Đạo/ KĐT Hoàn Hảoo, Phố Kim Đồng/ Thái Học 3/ Lôi Động/ Hưng Đạo, TT Sao Đỏ, TP. Chí Linh",
+      "- KDC Đại/ KDC Giang Hạ/ Thôn Bờ Đa, Phường An Lạc, TP. Chí Linh",
+      "- Thôn Kim Điền/ Thôn Vạn Yên, Phường Hưng Đạo, TP.Chí Linh",
+      "*Nam Sách:",
+      "- Thôn Quảng Tân/ Đột Hạ/ Đột Trên, Xã Nam Tân, Nam Sách",
+      "*TP Hải Dương",
+      "- Trương Hán Siêu, Nhị Châu, TP. Hải Dương",
+      "*Kim Thành",
+      "- Thôn Phương Tân/ Cổ Phục Bắc/ Cổ Phục Nam/ Lương Xá Bắc/Tiểu đoàn 1, Lữ đoàn 649 Tổng cục Hậu cần đóng tại thôn Lương Xá Bắc/ Lương Xá Nam/, Xã Kim Liên, Kim Thành",
+      "- Xã Kim Đính, Kim Thành",
+      "*Bình Giang",
+      "- KDC thuộc khu Thượng, TT Kẻ Sặt, Bình Giang",
+      "*Thanh Hà",
+      "- Cụm dân cư xóm dưới xóm 9, thôn Lang Can 3, xã Thanh Lang, Thanh Hà"
+    ]
+  },
+  {
+    "key":"4",
+    "name":"4. Đi đến địa phương đang thực hiện giãn cách xã hội theo Chỉ thị 16/CT-TTg ***Cập nhật 18h00 ngày 03/03/2021*** 4.1.Hải Phòng - Xã Hoàng Động, huyệ...",
+    "description":[
+      "4. Đi đến địa phương đang thực hiện giãn cách xã hội theo Chỉ thị 16/CT-TTg",
+      "***Cập nhật 18h00 ngày 03/03/2021***",
+      "4.1.Hải Phòng",
+      "- Xã Hoàng Động, huyện Thủy Nguyên",
+      "- Phường Dư Hàng,Quận Lê Châu",
+      "- Thôn Kim Sơn, xã Lê Thiện, An Dương",
+      "4.2.Hải Dương",
+      "*Cẩm Giàng",
+      "- Thôn Tiền/ Trằm/ Cột/ Trụ,KĐT thương mại Lai Cách, thị trấn Lai Cách.",
+      "- Thôn Phú Lộc/ Hoàng Gia, xã Cẩm Vũ.",
+      "- Khu 3, thị trấn Cẩm Giàng.",
+      "- Điểm dân cư khu vực quanh quán Karaoke Tre Vàng và Xóm 3 cũ thôn Quý Dương/ Xóm Mới và Khu tập thể xí nghiệp Gia cầm, thôn Tràng Kỹ, xã Tân Trường.",
+      "- Một phần xóm 8, thôn Hoàng Gia/ Thôn Mậu Tài, xã Cẩm Điền.",
+      "- Thôn Tân Cờ/ Lê Xá/ Phúc A, xã Cẩm Phúc.",
+      "- Thôn Thái Lai/ KDC 416 xã Lương Điền.",
+      "- Xóm Cồng bà Thì, thôn Phú Quân - xã Định Sơn."
+    ]
+  }
+]

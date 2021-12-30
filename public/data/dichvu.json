@@ -1,0 +1,8 @@
+[
+  {
+    "key":"1","name":"Đến nơi đông người hoặc nơi có nguy cơ lây nhiễm cao (Siêu thị, bệnh viện, karaoke, phòng gym,…) nhưng không đeo khẩu trang không? ","Co":["Có"],"Khong":["Khong"]
+  },
+  {
+    "key":"2","name":"Đã từng đến nơi đông người hoặc nơi có nguy cơ lây nhiễm cao trước đây (Siêu thị, bệnh viện, karaoke, phòng gym,…) mà hiện tại khu vực đó bị phong tỏa không?","Co":["Có"],"Khong":["Khong"]
+  }
+]

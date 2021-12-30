@@ -1,0 +1,20 @@
+[
+  {
+    "key":"1","name":"Có tiếp xúc trực tiếp với trường hợp xác định hoặc nghi nhiễm bệnh Covid-19 không?","Co":["Có"],"Khong":["Khong"]
+  },
+  {
+    "key":"2","name":"Tiếp xúc với người đang cách ly do nghi nhiễm bệnh Covid-19 không?","Co":["Có"],"Khong":["Khong"]
+  },
+  {
+    "key":"3","name":"Tiếp xúc với người từ nước có dịch bệnh Covid-19 không?","Co":["Có"],"Khong":["Khong"]
+  },
+  {
+    "key":"4","name":"Có sử dụng đường bay trong nước hoặc nước ngoài không?","Co":["trong nước ","quốc tế"],"Khong":["Khong"]
+  },
+  {
+    "key":"5","name":"Có sử dụng phương tiện giao thông công cộng (tàu hỏa, xe khách, taxi) không?","Co":["tàu hỏa","xe khách","taxi"],"Khong":["Khong"]
+  },
+  {
+    "key":"6","name":"Có về quê/ đến tỉnh thành khác trong 07 ngày qua không?\\n(Nếu có, vui lòng ghi rõ tên QUẬN/ HUYỆN và THÀNH PHỐ/ TỈNH không ghi địa chỉ chi tiết ở dòng Other; ví dụ: huyện Tân Biên – tỉnh Tây Ninh)","Co":["Có"],"Khong":["Khong"]
+  }
+]
