@@ -41,6 +41,10 @@ function Index(props){
         setDonViPB(e.target.value);
     }
 
+    useEffect(()=>{
+        _.isEmpty(DV_PB) ? console.log(DV_PB) : setDonViPB(Object.keys(DV_PB)[0]);
+    },[DV_PB]);
+
     return(
         <>
             <nav className="navbar navbar-light bg-dark">
@@ -67,30 +71,30 @@ function Index(props){
                             <p>- Với tinh thần trách nhiệm người Hùng Hậu, quý Thầy, Cô, Anh, Chị có vui lòng khai báo trung thực các nội dung sau:</p>
                         </div>
                         <form>
-                            <label for="SoDienThoai" class="form-label"><span style={{"color":"red"}}>*</span> Số điện thoại</label>
-                            <input type="text" id="SoDienThoai" class="form-control" placeholder="Nhập số điện thoại" required/>
+                            <label htmlFor="SoDienThoai" className="form-label"><span style={{"color":"red"}}>*</span> Số điện thoại</label>
+                            <input type="text" id="SoDienThoai" className="form-control" placeholder="Nhập số điện thoại" required/>
                             <div className="row">
                                 <div className="col-md-6 pt-3">
-                                    <label for="HoTen" class="form-label"><span style={{"color":"red"}}>*</span> Họ và tên</label>
-                                    <input type="text" id="HoTen" class="form-control" placeholder="Họ và tên" required/>
+                                    <label htmlFor="HoTen" className="form-label"><span style={{"color":"red"}}>*</span> Họ và tên</label>
+                                    <input type="text" id="HoTen" className="form-control" placeholder="Họ và tên" required/>
                                 </div>
                                 <div className="col-md-6 pt-3">
-                                    <label for="Email" class="form-label"><span style={{"color":"red"}}>*</span> Email</label>
-                                    <input type="text" id="Email" class="form-control" placeholder="Email..." required/>
+                                    <label htmlFor="Email" className="form-label"><span style={{"color":"red"}}>*</span> Email</label>
+                                    <input type="text" id="Email" className="form-control" placeholder="Email..." required/>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-6 pt-3">
-                                    <label for="DonVi" class="form-label"><span style={{"color":"red"}}>*</span> Đơn vị</label>
-                                    <select id="DonVi" class="form-select" required onChange={handleChangeDV_PB}>
+                                    <label htmlFor="DonVi" className="form-label"><span style={{"color":"red"}}>*</span> Đơn vị</label>
+                                    <select id="DonVi" className="form-select" required onChange={handleChangeDV_PB}>
                                         {_.isEmpty(DV_PB) ? null : Object.keys(DV_PB).map(dv => (
                                             <option key={dv}>{dv}</option>
                                         ))}
                                     </select>
                                 </div>
                                 <div className="col-md-6 pt-3">
-                                    <label for="PhongBan" class="form-label"><span style={{"color":"red"}}>*</span> Phòng ban</label>
-                                    <select id="PhongBan" class="form-select" required>
+                                    <label htmlFor="PhongBan" className="form-label"><span style={{"color":"red"}}>*</span> Phòng ban</label>
+                                    <select id="PhongBan" className="form-select" required>
                                         {_.isEmpty(DV_PB) || _.isEmpty(DonViPB) ? null : DV_PB[DonViPB].map(pb => (
                                             <option key={pb}>{pb}</option>
                                         ))}
@@ -99,12 +103,12 @@ function Index(props){
                             </div>
                             <div className="row">
                                 <div className="col-md-6 pt-3">
-                                    <label for="NamSinh" class="form-label"><span style={{"color":"red"}}>*</span> Năm sinh</label>
-                                    <input type="text" id="NamSinh" class="form-control" placeholder="Năm sinh" required/>
+                                    <label htmlFor="NamSinh" className="form-label"><span style={{"color":"red"}}>*</span> Năm sinh</label>
+                                    <input type="text" id="NamSinh" className="form-control" placeholder="Năm sinh" required/>
                                 </div>
                                 <div className="col-md-6 pt-3">
-                                    <label for="GioiTinh" class="form-label"><span style={{"color":"red"}}>*</span> Giới tính</label>
-                                    <select id="GioiTinh" class="form-select" required>
+                                    <label htmlFor="GioiTinh" className="form-label"><span style={{"color":"red"}}>*</span> Giới tính</label>
+                                    <select id="GioiTinh" className="form-select" required>
                                         <option key="Nam">Nam</option>
                                         <option key="Nữ">Nữ</option>
                                         <option key="Giới tính khác">Giới tính khác</option>
