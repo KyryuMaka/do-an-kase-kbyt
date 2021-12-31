@@ -31,10 +31,15 @@ function Index(props){
         }
         call();
     },[]);
-    const {TinhThanh,DV_PB,DauHieu,DichTe,DichVu,DiaDiem} = mainData
+    const {TinhThanh,DV_PB,DauHieu,DichTe,DichVu,DiaDiem} = mainData;
+
     useEffect(() => {
-        console.log(mainData)
-    }, [mainData])
+        console.log(mainData);
+    }, [mainData]);
+
+    const handleChangeDV_PB = (e) =>{
+        setDonViPB(e.target.value);
+    }
 
     return(
         <>
@@ -77,7 +82,7 @@ function Index(props){
                             <div className="row">
                                 <div className="col-md-6 pt-3">
                                     <label for="DonVi" class="form-label"><span style={{"color":"red"}}>*</span> Đơn vị</label>
-                                    <select id="DonVi" class="form-select" required onChange={(e) => setDonViPB(e.target.value)}>
+                                    <select id="DonVi" class="form-select" required onChange={handleChangeDV_PB}>
                                         {_.isEmpty(DV_PB) ? null : Object.keys(DV_PB).map(dv => (
                                             <option key={dv}>{dv}</option>
                                         ))}
@@ -100,7 +105,9 @@ function Index(props){
                                 <div className="col-md-6 pt-3">
                                     <label for="GioiTinh" class="form-label"><span style={{"color":"red"}}>*</span> Giới tính</label>
                                     <select id="GioiTinh" class="form-select" required>
-                                        
+                                        <option key="Nam">Nam</option>
+                                        <option key="Nữ">Nữ</option>
+                                        <option key="Giới tính khác">Giới tính khác</option>
                                     </select>
                                 </div>
                             </div>
