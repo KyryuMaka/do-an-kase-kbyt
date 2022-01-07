@@ -1,20 +1,44 @@
 [
   {
-    "key":"1","name":"Có tiếp xúc trực tiếp với trường hợp xác định hoặc nghi nhiễm bệnh Covid-19 không?","Co":["Có"],"Khong":["Khong"]
+    "key":"1","type":"radio","placeholder":"","name":"Anh/Chị có sống, làm việc cùng người đã được xác định hoặc nghi ngờ mắc bệnh COVID -19 không?","co":["Có"],"khong":["Không"]
   },
   {
-    "key":"2","name":"Tiếp xúc với người đang cách ly do nghi nhiễm bệnh Covid-19 không?","Co":["Có"],"Khong":["Khong"]
+    "key":"2","type":"radio","placeholder":"","name":"Anh/Chị có ngồi gần (< 2 mét) hoặc ngồi trên cùng chuyến xe/tàu/máy bay với trường hợp xác định hoặc nghi ngờ mắc bệnh COVID-19 không?","co":["Có"],"khong":["Không"]
   },
   {
-    "key":"3","name":"Tiếp xúc với người từ nước có dịch bệnh Covid-19 không?","Co":["Có"],"Khong":["Khong"]
+    "key":"3","type":"radio","placeholder":"","name":"Anh/Chị có tiếp xúc với người có một trong các biểu hiện sau đây (Sốt, ho, khó thở, Viêm phổi):","co":["Có"],"khong":["Không"]
   },
   {
-    "key":"4","name":"Có sử dụng đường bay trong nước hoặc nước ngoài không?","Co":["trong nước ","quốc tế"],"Khong":["Khong"]
+    "key":"4","type":"radio","placeholder":"","name":"Anh/Chị có sử dụng phương tiện giao thông công cộng (tàu hỏa, xe khách, taxi, xe buýt) không?","co":["trong nước ","quốc tế"],"khong":["Không"]
   },
   {
-    "key":"5","name":"Có sử dụng phương tiện giao thông công cộng (tàu hỏa, xe khách, taxi) không?","Co":["tàu hỏa","xe khách","taxi"],"Khong":["Khong"]
+    "key":"5","type":"date","placeholder":"Chọn thời điểm","name":"Anh/Chị có cách ly tập trung do nghi nhiễm COVID-19 không? (Nếu có, vui lòng ghi rõ từ ngày)","co":["tàu hỏa","xe khách","taxi"],"khong":["Không"]
   },
   {
-    "key":"6","name":"Có về quê/ đến tỉnh thành khác trong 07 ngày qua không?\\n(Nếu có, vui lòng ghi rõ tên QUẬN/ HUYỆN và THÀNH PHỐ/ TỈNH không ghi địa chỉ chi tiết ở dòng Other; ví dụ: huyện Tân Biên – tỉnh Tây Ninh)","Co":["Có"],"Khong":["Khong"]
+    "key":"6","type":"date","placeholder":"Chọn thời điểm","name":"Có cách ly tại nhà do nghi nhiễm COVID-19 không? (Nếu có, vui lòng ghi rõ từ ngày)","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"7","type":"radio","placeholder":"","name":"Có ở cùng nhà với người làm trong các ngành nghề có nguy cơ lây nhiễm cao như: y tế, vận tải hành khách/ kho vận, giao dịch ngân hàng","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"8","type":"date","placeholder":"Chọn thời điểm","name":"Anh/chị đã tiêm Vaccine mũi 1 chưa?","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"9","type":"date","placeholder":"Chọn thời điểm","name":"Anh/chị đã tiêm Vaccine mũi 2 chưa?","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"10","type":"radio","placeholder":"","name":"Anh/chị có thuộc đối tượng là F0 khỏi bệnh không?","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"11","type":"radio","placeholder":"","name":"Anh/chị có thuộc đối tượng có bệnh lý nền, không tiêm vaccine được không?","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"12","type":"text","placeholder":"Điền con số tương ứng","name":"Số lượng người thân sống cùng với Anh/chị (điền con số tương ứng)","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"13","type":"multiRadio","placeholder":"","name":"Người thân sống cùng của Anh/chị đã có tiêm vaccine chưa","co":["Đã tiêm 1 mũi", "Thuộc F0 đã khỏi bệnh", "Đã tiêm đủ 2 mũi", "Chưa tiêm mũi nào", "Không sống cùng người thân"],"khong":["Không"]
+  },
+  {
+    "key":"14","type":"text","placeholder":"Ngày cách ly ___ Đối tượng F (F0, F1, F2)","name":"Anh/Chị có cách ly tập trung do nghi nhiễm COVID-19 không? (Nếu có, vui lòng ghi rõ Ngày cách ly ____ Đối tượng F)","co":["Có"],"khong":["Không"]
   }
 ]

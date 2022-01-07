@@ -8,7 +8,6 @@ const getData = async (folder,name) =>{
     .then(data => {return data});
 }
 
-
 function Index(props){
     const [mainData, setmainData] = useState({TinhThanh:null,DV_PB:null,DauHieu:null,DichTe:null})
     const [XaPhuong, setXaPhuong] = useState()
@@ -25,12 +24,11 @@ function Index(props){
             await getData("","dauhieu").then(DauHieu => obj["DauHieu"] = DauHieu);
             await getData("","dichte").then(DichTe => obj["DichTe"] = DichTe);
             await getData("","diadiem").then(DiaDiem => obj["DiaDiem"] = DiaDiem);
-            await getData("","dichvu").then(DichVu => obj["DichVu"] = DichVu);
             setmainData(obj);
         }
         call();
     },[]);
-    const {TinhThanh,DV_PB,DauHieu,DichTe,DichVu,DiaDiem} = mainData;
+    const {TinhThanh,DV_PB,DauHieu,DichTe,DiaDiem} = mainData;
 
     useEffect(() => {
         console.log(mainData);
@@ -42,7 +40,11 @@ function Index(props){
 
     useEffect(()=>{
         _.isEmpty(DV_PB) ? console.log(DV_PB) : setDonViPB(Object.keys(DV_PB)[0]);
-    },[DV_PB]);        
+    },[DV_PB]);
+
+    const submit = () => {
+
+    }
 
     return(
         <>
@@ -131,7 +133,7 @@ function Index(props){
                                 </div>
                                 <div className="col-md-3 pt-2">
                                     <label htmlFor="TinhThanh" className="form-label"><span style={{"color":"red"}}>*</span> Quận huyện</label>
-                                    <select id="TinhThanh" className="form-select" required onChange={(e)=> getData("xa-phuong/",e.target.value).then(valu => setXaPhuong(valu))}>
+                                    <select id="TinhThanh" className="form-select" disabled={_.isEmpty(QuanHuyen)} required onChange={(e)=> getData("xa-phuong/",e.target.value).then(valu => setXaPhuong(valu))}>
                                         <option value="" disabled selected hidden>Quận huyện</option>
                                         {_.isEmpty(QuanHuyen) ? <></> : QuanHuyen.map(qh => (
                                             <option value={qh.code}>{qh.name_with_type}</option>
@@ -140,7 +142,7 @@ function Index(props){
                                 </div>
                                 <div className="col-md-3 pt-2">
                                     <label htmlFor="TinhThanh" className="form-label"><span style={{"color":"red"}}>*</span> Xã phường</label>
-                                    <select id="TinhThanh" className="form-select" required>
+                                    <select id="TinhThanh" className="form-select" disabled={_.isEmpty(XaPhuong)} required>
                                         <option value="" disabled selected hidden>Xã phường</option>
                                         {_.isEmpty(XaPhuong) ? <></> : XaPhuong.map(xp => (
                                             <option value={xp.path_with_type}>{xp.name_with_type}</option>
@@ -176,7 +178,7 @@ function Index(props){
                                 </div>
                             </div>
                             <p className="pt-3" style={{"margin": "0"}}><span style={{"color":"red"}}>*</span><span className="fw-bold" style={{"color":"blue"}}> Các biểu hiện lâm sàng</span></p>
-                            <table class="table">
+                            <table class="table table-striped table-hover table-bordered table-sm align-middle">
                                 <thead>
                                     <tr>
                                         <th scope="col"> </th>
@@ -185,44 +187,116 @@ function Index(props){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <p className="pt-3"><span style={{"color":"red"}}>*</span> Sốt</p>
-                                        </td>
-                                        <td>
-                                            <div className="form-check pt-3">
-                                                <input class="form-check-input" type="radio" name="Sốt" id="Sot" value="Có" />
-                                                <label class="form-check-label" for="Sot">Có</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="form-check pt-3">
-                                                <input class="form-check-input" type="radio" name="Sốt" id="KhongSot" value="Không" checked/>
-                                                <label class="form-check-label" for="KhongSot">Không</label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p className="pt-3"><span style={{"color":"red"}}>*</span> Ho</p>
-                                        </td>
-                                        <td>
-                                            <div className="form-check pt-3">
-                                                <input class="form-check-input" type="radio" name="Ho" id="Ho" value="Có" />
-                                                <label class="form-check-label" for="Ho">Có</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="form-check pt-3">
-                                                <input class="form-check-input" type="radio" name="Ho" id="KhongHo" value="Không" checked/>
-                                                <label class="form-check-label" for="KhongHo">Không</label>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    {_.isEmpty(DauHieu)?<></>:DauHieu.map(dt => (
+                                        <tr>
+                                            <td>
+                                                <p className="pt-3"><span style={{"color":"red"}}>*</span> {dt.name}</p>
+                                            </td>
+                                            <td>
+                                                <div className="form-check">
+                                                    <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={dt.co} />
+                                                    <label class="form-check-label" for={dt.key}>Có</label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className="form-check">
+                                                    <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={dt.khong} checked/>
+                                                    <label class="form-check-label" for={dt.key}>Không</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
+                            <p className="pt-3" style={{"margin": "0"}}><span style={{"color":"red"}}>*</span><span className="fw-bold" style={{"color":"blue"}}> Tiền sử dịch tễ: Trong vòng 07 ngày qua, quý Thầy, Cô, Anh, Chị:</span></p>
+                            <table class="table table-striped table-hover table-bordered table-sm align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"> </th>
+                                        <th scope="col">Có</th>
+                                        <th scope="col">Không</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {_.isEmpty(DichTe)?<></>:DichTe.map(dt => (
+                                        <tr>
+                                            <td className="w-50">
+                                                <p className="pt-3"><span style={{"color":"red"}}>*</span> {dt.name}</p>
+                                            </td>
+                                            <td>
+                                                {(dt.type === "date" || dt.type == "text")?
+                                                <input class="form-control" type={dt.type} name={dt.name} id={dt.key} placeholder={dt.placeholder} />:
+                                                (dt.type === "multiRadio")?
+                                                dt.co.map(tmp => (
+                                                    <div className="form-check">
+                                                        <label class="form-check-label" for={dt.key}>{tmp}</label>
+                                                        <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={tmp} />
+                                                    </div>
+                                                )):
+                                                <>
+                                                    <div className="form-check">
+                                                        <label class="form-check-label" for={dt.key}>Có</label>
+                                                        <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={dt.co} />
+                                                    </div>
+                                                </>}
+                                            </td>
+                                            <td>
+                                                <div className="form-check">
+                                                    <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={dt.khong} checked/>
+                                                    <label class="form-check-label" for={dt.key}>Không</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <p className="pt-3" style={{"margin": "0"}}><span style={{"color":"red"}}>*</span><span className="fw-bold" style={{"color":"blue"}}> Địa điểm nơi ở:</span></p>
+                            <table class="table table-striped table-hover table-bordered table-sm align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"> </th>
+                                        <th scope="col">Có</th>
+                                        <th scope="col">Không</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {_.isEmpty(DiaDiem)?<></>:DiaDiem.map(dt => (
+                                        <tr>
+                                            <td className="w-50">
+                                                <p className="pt-3"><span style={{"color":"red"}}>*</span> {dt.name}</p>
+                                            </td>
+                                            <td>
+                                                {(dt.type === "multiRadio")?
+                                                dt.co.map(tmp => (
+                                                    <div className="form-check">
+                                                        <label class="form-check-label" for={dt.key}>{tmp}</label>
+                                                        <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={tmp} />
+                                                    </div>
+                                                )):
+                                                <>
+                                                    <div className="form-check">
+                                                        <label class="form-check-label" for={dt.key}>Có</label>
+                                                        <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={dt.co} />
+                                                    </div>
+                                                </>}
+                                            </td>
+                                            <td>
+                                                <div className="form-check">
+                                                    <input class="form-check-input" type="radio" name={dt.name} id={dt.key} value={dt.khong} checked/>
+                                                    <label class="form-check-label" for={dt.key}>Không</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <input className="form-control" placeholder="Vui lòng cung cấp thêm chi tiết thông tin về triệu chứng, dịch tễ lịch sử di chuyển (Nếu có)"></input>
+                            <input type="submit" className="btn btn-primary mt-3 container" value="Gửi" />
                         </form>
                     </div>
+                </div>
+                <div className="text-center pt-4 pb-3">
+                    <p>Copyright 2021 © HungHau Holdings</p>
                 </div>
             </div>
         </>

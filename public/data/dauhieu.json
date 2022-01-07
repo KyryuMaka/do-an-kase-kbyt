@@ -1,14 +1,29 @@
 [
   {
-    "key":"1","name":"Sốt đột ngột >37°C "
+    "key":"1","name":"Sốt","co":["Có"],"khong":["Không"]
   },
   {
-    "key":"2","name":"Ho"
+    "key":"2","name":"Ho","co":["Có"],"khong":["Không"]
   },
   {
-    "key":"3","name":"Khó thở, tức ngực "
+    "key":"3","name":"Khó thở","co":["Có"],"khong":["Không"]
   },
   {
-    "key":"4","name":"Các triệu chứng khác (đau họng, chảy nước mũi,…)"
+    "key":"4","name":"Mệt mỏi","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"5","name":"Viêm phổi","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"6","name":"Đau họng","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"7","name":"Mất vị giác","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"8","name":"Mất khứu giác","co":["Có"],"khong":["Không"]
+  },
+  {
+    "key":"9","name":"Các triệu chứng khác (…)","co":["Có"],"khong":["Không"]
   }
 ]

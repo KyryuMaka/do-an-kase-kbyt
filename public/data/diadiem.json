@@ -1,11 +1,8 @@
 [
   {
-    "key":"1","name":"Phường/ xã nơi Thầy, Cô, Anh, Chị đang ở có bị phong tỏa trong 07 ngày gần đây không? ","Co":["Có"],"Khong":["Khong"]
+    "key":"1","name":"Nhà Thầy, Cô, Anh, Chị đang ở có bị phong tỏa không?","co":["Có"],"khong":["Không"]
   },
   {
-    "key":"2","name":"Quận/ huyện nơi Thầy, Cô, Anh, Chị đang ở có bị phong tỏa trong 07 ngày gần đây không?","Co":["Có"],"Khong":["Khong"]
-  },
-  {
-    "key":"3","name":"Phường/ xã nơi Thầy, Cô, Anh, Chị đang ở có người thuộc trường hợp F1, F2 không?","Co":["Có"],"Khong":["Khong"]
+    "key":"2","type":"multiRadio","name":"Nhà Thầy, Cô, Anh, Chị đang ở có người thuộc các trường hợp như sau?","co":["F0", "F1"],"khong":["Không"]
   }
 ]
