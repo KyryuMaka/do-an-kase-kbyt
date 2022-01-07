@@ -3,7 +3,7 @@ import * as bootstrap from "bootstrap";
 import _ from 'lodash';
 
 const getData = async (folder,name) =>{
-    return await fetch('data/'+folder+name+'.json')
+    return await fetch('./data/'+folder+name+'.json')
     .then(response => response.json())
     .then(data => {return data});
 }
@@ -26,7 +26,6 @@ function Index(props){
             await getData("","dichte").then(DichTe => obj["DichTe"] = DichTe);
             await getData("","diadiem").then(DiaDiem => obj["DiaDiem"] = DiaDiem);
             await getData("","dichvu").then(DichVu => obj["DichVu"] = DichVu);
-            obj["TinhThanh_TT"]=obj.TinhThanh
             setmainData(obj);
         }
         call();
@@ -43,7 +42,7 @@ function Index(props){
 
     useEffect(()=>{
         _.isEmpty(DV_PB) ? console.log(DV_PB) : setDonViPB(Object.keys(DV_PB)[0]);
-    },[DV_PB]);
+    },[DV_PB]);        
 
     return(
         <>
@@ -88,7 +87,7 @@ function Index(props){
                                     <label htmlFor="DonVi" className="form-label"><span style={{"color":"red"}}>*</span> Đơn vị</label>
                                     <select id="DonVi" className="form-select" required onChange={handleChangeDV_PB}>
                                         {_.isEmpty(DV_PB) ? null : Object.keys(DV_PB).map(dv => (
-                                            <option key={dv}>{dv}</option>
+                                            <option value={dv}>{dv}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -96,7 +95,7 @@ function Index(props){
                                     <label htmlFor="PhongBan" className="form-label"><span style={{"color":"red"}}>*</span> Phòng ban</label>
                                     <select id="PhongBan" className="form-select" required>
                                         {_.isEmpty(DV_PB) || _.isEmpty(DonViPB) ? null : DV_PB[DonViPB].map(pb => (
-                                            <option key={pb}>{pb}</option>
+                                            <option value={pb}>{pb}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -109,12 +108,119 @@ function Index(props){
                                 <div className="col-md-6 pt-3">
                                     <label htmlFor="GioiTinh" className="form-label"><span style={{"color":"red"}}>*</span> Giới tính</label>
                                     <select id="GioiTinh" className="form-select" required>
-                                        <option key="Nam">Nam</option>
-                                        <option key="Nữ">Nữ</option>
-                                        <option key="Giới tính khác">Giới tính khác</option>
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                        <option value="Giới tính khác">Giới tính khác</option>
                                     </select>
                                 </div>
                             </div>
+                            <div className="row">
+                                <p className="pt-3" style={{"margin": "0"}}><span style={{"color":"red"}}>*</span><span className="fw-bold" style={{"color":"blue"}}> Chổ ở hiện tại:</span></p>
+                                <div className="col-md-3 pt-2">
+                                    <label htmlFor="DiaChi" className="form-label"><span style={{"color":"red"}}>*</span> Địa chỉ:</label>
+                                    <input type="text" id="DiaChi" className="form-control" placeholder="Số nhà, tên đường, ấp, tổ, khu phố..." required/>
+                                </div>
+                                <div className="col-md-3 pt-2">
+                                    <label htmlFor="TinhThanh" className="form-label"><span style={{"color":"red"}}>*</span> Tỉnh thành</label>
+                                    <select id="TinhThanh" className="form-select" required onChange={(e) => getData("quan-huyen/",e.target.value).then(valu => setQuanHuyen(valu))}>
+                                        <option value="" disabled selected hidden>Tỉnh thành</option>
+                                        {_.isEmpty(TinhThanh) ? <></> : TinhThanh.map((tt) => (
+                                                <option value={tt.code}>{tt.name_with_type}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="col-md-3 pt-2">
+                                    <label htmlFor="TinhThanh" className="form-label"><span style={{"color":"red"}}>*</span> Quận huyện</label>
+                                    <select id="TinhThanh" className="form-select" required onChange={(e)=> getData("xa-phuong/",e.target.value).then(valu => setXaPhuong(valu))}>
+                                        <option value="" disabled selected hidden>Quận huyện</option>
+                                        {_.isEmpty(QuanHuyen) ? <></> : QuanHuyen.map(qh => (
+                                            <option value={qh.code}>{qh.name_with_type}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="col-md-3 pt-2">
+                                    <label htmlFor="TinhThanh" className="form-label"><span style={{"color":"red"}}>*</span> Xã phường</label>
+                                    <select id="TinhThanh" className="form-select" required>
+                                        <option value="" disabled selected hidden>Xã phường</option>
+                                        {_.isEmpty(XaPhuong) ? <></> : XaPhuong.map(xp => (
+                                            <option value={xp.path_with_type}>{xp.name_with_type}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                            <p className="pt-3"><span style={{"color":"red"}}>*</span> Hình thức làm việc</p>
+                            <div className="row" style={{"margin":"0"}}>
+                                <div className="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="HinhThucLamViec" id="Khach" value="Khách"/>
+                                    <label class="form-check-label" for="Khach">Khách</label>
+                                </div>
+                                <div className="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="HinhThucLamViec" id="TrucTiep" value="Trực Tiếp" />
+                                    <label class="form-check-label" for="TrucTiep">Trực tiếp</label>
+                                </div>
+                                <div className="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="HinhThucLamViec" id="TrucTaiCoSo" value="Trực tại Cơ Sở" />
+                                    <label class="form-check-label" for="TrucTaiCoSo">Trực tại Cơ sở</label>
+                                </div>
+                                <div className="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="HinhThucLamViec" id="WFH" value="WFH" />
+                                    <label class="form-check-label" for="WFH">WFH</label>
+                                </div>
+                                <div className="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="HinhThucLamViec" id="DayOnline" value="Dạy Online" />
+                                    <label class="form-check-label" for="DayOnline">Dạy Online</label>
+                                </div>
+                                <div className="form-check col-md-2">
+                                    <input class="form-check-input" type="radio" name="HinhThucLamViec" id="NghiKhongLuong" value="Nghỉ không lương" />
+                                    <label class="form-check-label" for="NghiKhongLuong">Nghỉ không lương</label>
+                                </div>
+                            </div>
+                            <p className="pt-3" style={{"margin": "0"}}><span style={{"color":"red"}}>*</span><span className="fw-bold" style={{"color":"blue"}}> Các biểu hiện lâm sàng</span></p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"> </th>
+                                        <th scope="col">Có</th>
+                                        <th scope="col">Không</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p className="pt-3"><span style={{"color":"red"}}>*</span> Sốt</p>
+                                        </td>
+                                        <td>
+                                            <div className="form-check pt-3">
+                                                <input class="form-check-input" type="radio" name="Sốt" id="Sot" value="Có" />
+                                                <label class="form-check-label" for="Sot">Có</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="form-check pt-3">
+                                                <input class="form-check-input" type="radio" name="Sốt" id="KhongSot" value="Không" checked/>
+                                                <label class="form-check-label" for="KhongSot">Không</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p className="pt-3"><span style={{"color":"red"}}>*</span> Ho</p>
+                                        </td>
+                                        <td>
+                                            <div className="form-check pt-3">
+                                                <input class="form-check-input" type="radio" name="Ho" id="Ho" value="Có" />
+                                                <label class="form-check-label" for="Ho">Có</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="form-check pt-3">
+                                                <input class="form-check-input" type="radio" name="Ho" id="KhongHo" value="Không" checked/>
+                                                <label class="form-check-label" for="KhongHo">Không</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </form>
                     </div>
                 </div>
