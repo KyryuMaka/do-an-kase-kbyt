@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from "react";
 import * as bootstrap from "bootstrap";
 import _ from 'lodash';
-import QRCode from 'qrcode.react'
 import { useParams } from "react-router-dom";
 
 function KetQua(props){
