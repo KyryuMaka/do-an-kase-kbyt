@@ -402,7 +402,7 @@ function Index(props){
                                                 {_.isEmpty(nv)?<></>:
                                                 <div className="row">
                                                     <div className="col-3 text-center">
-                                                        <QRCode value={`./ketqua/${nv.SoDienThoai}`} style={{padding:'auto'}}/>
+                                                        <QRCode value={`${window.location.href}/ketqua/${nv.SoDienThoai}`} style={{padding:'auto'}}/>
                                                         <p>{date}</p>
                                                     </div>
                                                     <div className="col-9">                        
