@@ -133,10 +133,10 @@ function Index(props){
         })
         .then(res => res.json())
         .then(data => {
-            console.log('Thành công: ', data);
+            console.log(data);
         })
         .catch((err) => {
-            console.error('Lỗi cmnr: ', err);
+            console.error(err);
         });
     }
 
